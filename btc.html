@@ -1,0 +1,82 @@
+<h3 class="md-display-3">Bitcoin Quick Snipe Cash Grab Deluxe v3.2</h3>
+
+<md-content>
+    <form name="userForm" ng-submit="submitOrder()">
+
+        <div class="col-md-12">
+            <h3>Place an Order</h3>
+
+            <!--{{newOrder}}-->
+            <!--{{apiPost}}-->
+
+            <div layout-gt-sm="row">
+                <md-input-container class="md-block" flex-gt-sm="">
+                    <label>API Key</label>
+                    <input ng-model="apiPost.key" required>
+                </md-input-container>
+
+                <md-input-container class="md-block" flex-gt-sm="">
+                    <label>API Secret</label>
+                    <input ng-model="apiPost.secret" required>
+                </md-input-container>
+            </div>
+            <div layout-gt-sm="row">
+                <md-input-container class="md-block" flex-gt-sm="">
+                    <label>Amount</label>
+                    <input ng-model="newOrder.amount" disabled>
+                </md-input-container>
+
+                <md-input-container class="md-block" flex-gt-sm="">
+                    <label>Fee</label>
+                    <input ng-model="fee" disabled>
+                </md-input-container>
+            </div>
+
+            <div class="col-md-5">
+                <div layout-gt-sm="row">
+                    <md-input-container class="md-block" flex-gt-sm="">
+                        <label>How much you looking to spend bro? ;)</label>
+                        <input ng-model="funds" required>
+                    </md-input-container>
+                </div>
+            </div>
+            <div class="col-md-7" ng-if="funds">
+                Here is what your money would buy with NO fee: <b>{{funds}}</b> ÷ <b>{{btcPrice.bid}}</b> = <b>{{beforeAmt}}</b>
+                <br>
+                Fee: <b>{{fee}}</b>
+                <br>
+                Your adjusted funds after fee: <b>{{adjustedFunds}}</b>
+                <br>
+                BTC you can buy after jew fee: <b>{{youGet}}</b>
+
+            </div>
+
+            <div class="col-md-12">
+                <md-button type='submit' class="md-raised md-primary">Submit</md-button>
+            </div>
+
+            </div>
+    </form>
+
+    <div class="col-md-12">
+        <h3>Gemini Current BTC Information</h3>
+        <table class="table table-striped text-centered">
+            <thead>
+            <tr>
+                <th>Bid</th>
+                <th>Ask</th>
+                <th>Last</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr >
+                <td>{{btcPrice.bid}}</td>
+                <td>{{btcPrice.ask}}</td>
+                <td>{{btcPrice.last}}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+</md-content>
