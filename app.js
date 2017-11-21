@@ -7,7 +7,6 @@ siteApp.config(function($routeProvider) {
             templateUrl : 'btc.html',
             controller : 'coinController',
         })
-
 })
 
 siteApp.controller('coinController',['$http', '$scope', '$interval', function($http, $scope, $interval) {
@@ -25,15 +24,12 @@ siteApp.controller('coinController',['$http', '$scope', '$interval', function($h
         "options": ["maker-or-cancel"]
     };
 
-
     $scope.apiPost = {
         //'nlQMYpEbuxuJrL4QSZ2I'
         "key": 'nlQMYpEbuxuJrL4QSZ2I',
         //'3fjq6H4id5KPqns3PJ4ys8jQtpy9'
         "secret": '3fjq6H4id5KPqns3PJ4ys8jQtpy9',
     };
-
-
 
     $scope.$watchGroup(['funds', 'btcPrice'], function (fundAmt) {
         var parsedAmt = parseFloat(fundAmt)
@@ -45,7 +41,6 @@ siteApp.controller('coinController',['$http', '$scope', '$interval', function($h
         $scope.youGet = $scope.adjustedFunds/parseFloat($scope.btcPrice.bid)
         $scope.newOrder.amount = parseFloat($scope.youGet.toPrecision(8))
     });
-
 
     function getBTCPrice() {
         $scope.btcPrice={}
