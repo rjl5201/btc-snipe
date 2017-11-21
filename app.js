@@ -26,9 +26,9 @@ siteApp.controller('coinController',['$http', '$scope', '$interval', function($h
 
     $scope.apiPost = {
         //'nlQMYpEbuxuJrL4QSZ2I'
-        "key": 'nlQMYpEbuxuJrL4QSZ2I',
+        "key": '',
         //'3fjq6H4id5KPqns3PJ4ys8jQtpy9'
-        "secret": '3fjq6H4id5KPqns3PJ4ys8jQtpy9',
+        "secret": '',
     };
 
     $scope.$watchGroup(['funds', 'btcPrice'], function (fundAmt) {
@@ -85,11 +85,13 @@ siteApp.controller('coinController',['$http', '$scope', '$interval', function($h
                 'X-GEMINI-SIGNATURE': hmac
             },
         }).then(function successCallback(response) {
-            console.log("SUCCESS!")
-            console.log(response)
+		alert("SUCCESS!");
+		console.log("SUCCESS!")
+		console.log(response)
         }, function errorCallback(response) {
             //console.log("Something terrible has happened")
-            console.log(response.data.message)
+		alert(response.data.message);
+		console.log(response.data.message)
         });
     }
 }]);
