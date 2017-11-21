@@ -6,9 +6,6 @@
         <div class="col-md-12">
             <h3>Place an Order</h3>
 
-            <!--{{newOrder}}-->
-            <!--{{apiPost}}-->
-
             <div layout-gt-sm="row">
                 <md-input-container class="md-block" flex-gt-sm="">
                     <label>API Key</label>
@@ -20,6 +17,7 @@
                     <input ng-model="apiPost.secret" required>
                 </md-input-container>
             </div>
+            
             <div layout-gt-sm="row">
                 <md-input-container class="md-block" flex-gt-sm="">
                     <label>Amount</label>
@@ -48,7 +46,6 @@
                 Your adjusted funds after fee: <b>{{adjustedFunds}}</b>
                 <br>
                 BTC you can buy after jew fee: <b>{{youGet}}</b>
-
             </div>
 
             <div class="col-md-12">
@@ -77,6 +74,5 @@
             </tbody>
         </table>
     </div>
-
 
 </md-content>
