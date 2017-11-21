@@ -26,9 +26,9 @@ siteApp.controller('coinController',['$http', '$scope', '$interval', function($h
 
     $scope.apiPost = {
         //'nlQMYpEbuxuJrL4QSZ2I'
-        "key": '',
+        "key": 'hi4bPirV3f2BcI5sIwgo',
         //'3fjq6H4id5KPqns3PJ4ys8jQtpy9'
-        "secret": '',
+        "secret": 'HnmuguB4P9ZXipmNoGb8BKVo7cc',
     };
 
     $scope.$watchGroup(['funds', 'btcPrice'], function (fundAmt) {
