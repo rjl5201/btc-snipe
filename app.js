@@ -21,7 +21,7 @@ siteApp.controller('coinController',['$http', '$scope', '$interval', function($h
         "price": "",
         "side": "buy",
         "type": "exchange limit",
-        "options": ["maker-or-cancel"]
+        // "options": ["maker-or-cancel"]
     };
 
     $scope.apiPost = {
@@ -33,12 +33,12 @@ siteApp.controller('coinController',['$http', '$scope', '$interval', function($h
 
     $scope.$watchGroup(['funds', 'btcPrice'], function (fundAmt) {
         var parsedAmt = parseFloat(fundAmt)
-        $scope.newOrder.price = $scope.btcPrice.bid
+        $scope.newOrder.price = $scope.btcPrice.last
 
-        $scope.beforeAmt = parsedAmt/parseFloat($scope.btcPrice.bid)
-        $scope.fee = ($scope.beforeAmt * parseFloat($scope.btcPrice.bid)) * .0025
+        $scope.beforeAmt = parsedAmt/parseFloat($scope.btcPrice.last)
+        $scope.fee = ($scope.beforeAmt * parseFloat($scope.btcPrice.last)) * .0025
         $scope.adjustedFunds = parsedAmt-$scope.fee
-        $scope.youGet = $scope.adjustedFunds/parseFloat($scope.btcPrice.bid)
+        $scope.youGet = $scope.adjustedFunds/parseFloat($scope.btcPrice.last)
         $scope.newOrder.amount = parseFloat($scope.youGet.toPrecision(8))
     });
 
@@ -52,7 +52,7 @@ siteApp.controller('coinController',['$http', '$scope', '$interval', function($h
             }
         }).then(function successCallback(response) {
             $scope.btcPrice = response.data;
-            console.log("Got BTC bid price " + $scope.btcPrice.bid)
+            console.log("Got BTC last price " + $scope.btcPrice.last)
         }, function errorCallback(response) {
             console.log("Error")
         });
